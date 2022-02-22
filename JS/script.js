@@ -42,7 +42,7 @@ for(let i = 0; i < cantidadProductosDistintos; i++){
     let productoElegido = prompt("Por favor, ingrese el producto que está buscando");
     
     //Si contamos con el producto, luego pedimos cantidad de compra y devuelve el monto total
-    if (productoElegido == producto1){
+    if (productoElegido === producto1){
          cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
         if (cantidadCompra <= stockProducto1) {
             let stockRestante1 = stockProducto1 - cantidadCompra;
@@ -50,7 +50,7 @@ for(let i = 0; i < cantidadProductosDistintos; i++){
         }
     }
     
-    else if (productoElegido == producto2){
+    else if (productoElegido === producto2){
          cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
         if (cantidadCompra <= stockProducto2) {
             let stockRestante2 = stockProducto2 - cantidadCompra;
@@ -58,7 +58,7 @@ for(let i = 0; i < cantidadProductosDistintos; i++){
         }
     }
     
-    else if (productoElegido == producto3){
+    else if (productoElegido === producto3){
          cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
         if (cantidadCompra <= stockProducto3) {
             let stockRestante3 = stockProducto3 - cantidadCompra;
