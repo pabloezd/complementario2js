@@ -29,7 +29,7 @@ let cantidadCompra;
 // Función para ahorrar codigo
 function stockSuficiente(stock, precio, producto){
     alert("El total de su compra es de $" + cantidadCompra * precio);
-    console.log("Stock Restante" + producto + ": " + stock);
+    console.log("Stock Restante " + producto + ": " + stock);
 }
 
 //Preguntamos al usuario cuantos productos diferentes quiere comprar
