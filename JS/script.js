@@ -23,12 +23,9 @@ let producto3 = "Taladro";
 let stockProducto3 = 30;
 let precioProducto3 = 450;
 
-//Definimos variables
-let cantidadCompra;
-
 // Función para ahorrar codigo
-function stockSuficiente(stock, precio, producto){
-    alert("El total de su compra es de $" + cantidadCompra * precio);
+function stockSuficiente(stock, cantidad, precio, producto){
+    alert("El total de su compra es de $" + cantidad * precio);
     console.log("Stock Restante " + producto + ": " + stock);
 }
 
@@ -43,26 +40,26 @@ for(let i = 0; i < cantidadProductosDistintos; i++){
     
     //Si contamos con el producto, luego pedimos cantidad de compra y devuelve el monto total
     if (productoElegido === producto1){
-         cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
-        if (cantidadCompra <= stockProducto1) {
-            let stockRestante1 = stockProducto1 - cantidadCompra;
-            stockSuficiente(stockRestante1, precioProducto1, producto1)
+         let cantidadCompra1 = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
+        if (cantidadCompra1 <= stockProducto1) {
+            let stockRestante1 = stockProducto1 - cantidadCompra1;
+            stockSuficiente(stockRestante1, cantidadCompra1, precioProducto1, producto1)
         }
     }
     
     else if (productoElegido === producto2){
-         cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
-        if (cantidadCompra <= stockProducto2) {
-            let stockRestante2 = stockProducto2 - cantidadCompra;
-            stockSuficiente(stockRestante2, precioProducto2, producto2)
+         let cantidadCompra2 = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
+        if (cantidadCompra2 <= stockProducto2) {
+            let stockRestante2 = stockProducto2 - cantidadCompra2;
+            stockSuficiente(stockRestante2, cantidadCompra2, precioProducto2, producto2)
         }
     }
     
     else if (productoElegido === producto3){
-         cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
-        if (cantidadCompra <= stockProducto3) {
-            let stockRestante3 = stockProducto3 - cantidadCompra;
-            stockSuficiente(stockRestante3, precioProducto3, producto3)
+         let cantidadCompra3 = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
+        if (cantidadCompra3 <= stockProducto3) {
+            let stockRestante3 = stockProducto3 - cantidadCompra3;
+            stockSuficiente(stockRestante3, cantidadCompra3, precioProducto3, producto3)
         }
     }
     
