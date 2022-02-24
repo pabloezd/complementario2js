@@ -23,9 +23,12 @@ let producto3 = "Taladro";
 let stockProducto3 = 30;
 let precioProducto3 = 450;
 
-// Función para ahorrar codigo
-function stockSuficiente(stock, cantidad, precio, producto){
+
+// Funciones para ahorrar codigo
+function stockSuficiente(cantidad, precio){
     alert("El total de su compra es de $" + cantidad * precio);
+}
+function stockQueda(producto, stock){
     console.log("Stock Restante " + producto + ": " + stock);
 }
 
@@ -33,36 +36,31 @@ function stockSuficiente(stock, cantidad, precio, producto){
 let cantidadProductosDistintos = parseInt(prompt("Por favor, ingrese la cantidad de productos distintos a adquirir"));
 
 //Ciclo para repetir tantas veces como el usuario indique productos distintos a adquirir
-for(let i = 0; i < cantidadProductosDistintos; i++){
-
-    //Preguntamos al usuario el producto que quiere
+for (let i = 0; i < cantidadProductosDistintos; i++){
+    
+    //Preguntamos al usuario el producto que quiere y cantidad
     let productoElegido = prompt("Por favor, ingrese el producto que está buscando");
+    let cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
     
-    //Si contamos con el producto, luego pedimos cantidad de compra y devuelve el monto total
-    if (productoElegido === producto1){
-         let cantidadCompra1 = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
-        if (cantidadCompra1 <= stockProducto1) {
-            let stockRestante1 = stockProducto1 - cantidadCompra1;
-            stockSuficiente(stockRestante1, cantidadCompra1, precioProducto1, producto1)
-        }
+    //Si contamos con el producto y cantidad, le decimos cuanto es y por consola cuanto stock queda
+    if ((productoElegido === producto1) && (cantidadCompra <= stockProducto1)){
+        stockSuficiente(cantidadCompra, precioProducto1) 
+        let stockRestante1 = stockProducto1 - cantidadCompra
+        stockQueda(producto1, stockRestante1)
     }
     
-    else if (productoElegido === producto2){
-         let cantidadCompra2 = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
-        if (cantidadCompra2 <= stockProducto2) {
-            let stockRestante2 = stockProducto2 - cantidadCompra2;
-            stockSuficiente(stockRestante2, cantidadCompra2, precioProducto2, producto2)
-        }
+    else if ((productoElegido === producto2) && (cantidadCompra <= stockProducto2)){
+        stockSuficiente(cantidadCompra, precioProducto2) 
+        let stockRestante2 = stockProducto2 - cantidadCompra
+        stockQueda(producto2, stockRestante2)
     }
     
-    else if (productoElegido === producto3){
-         let cantidadCompra3 = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
-        if (cantidadCompra3 <= stockProducto3) {
-            let stockRestante3 = stockProducto3 - cantidadCompra3;
-            stockSuficiente(stockRestante3, cantidadCompra3, precioProducto3, producto3)
-        }
+    else if ((productoElegido === producto3) && (cantidadCompra <= stockProducto3)){
+        stockSuficiente(cantidadCompra, precioProducto3) 
+        let stockRestante3 = stockProducto3 - cantidadCompra
+        stockQueda(producto3, stockRestante3)
     }
-    
+
     //Si no contamos con el producto o stock disponible, mostramos este mensaje al usuario indicando qué productos puede elegir
     else{
         alert("No contamos con ese producto o no tenemos stock disponible. Por favor elija entre Taladro, Sierra o Amoladora");
