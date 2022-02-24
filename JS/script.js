@@ -10,19 +10,20 @@ function registroUsuario(nombre, email) {
 }
 registroUsuario(saludarUsuario, emailUsuario);
 
-//Definimos los productos
-let producto1 = "Amoladora";
-let stockProducto1 = 10;
-let precioProducto1 = 500;
+//Definimos la funcion constructora para nuevos productos como objetos
+function Producto(nombre, stock, precio){
+    this.nombre = nombre;
+    this.stock = stock;
+    this.precio = precio;
+}
+//Empezamos a listar los productos 
+const prod1 = new Producto ("Amoladora", 10, 500);
+const prod2 = new Producto ("Sierra", 15, 600);
+const prod3 = new Producto ("Taladro", 30, 450);
 
-let producto2 = "Sierra";
-let stockProducto2 = 15;
-let precioProducto2 = 600;
-
-let producto3 = "Taladro";
-let stockProducto3 = 30;
-let precioProducto3 = 450;
-
+//Definimos el array de productos
+const listaProd = [prod1, prod2, prod3]
+const allProducts = [listaProd[0].nombre, listaProd[1].nombre, listaProd[2].nombre]
 
 // Funciones para ahorrar codigo
 function stockSuficiente(cantidad, precio){
@@ -43,22 +44,22 @@ for (let i = 0; i < cantidadProductosDistintos; i++){
     let cantidadCompra = parseInt(prompt("Por favor, también ingrese la cantidad de compra"));
     
     //Si contamos con el producto y cantidad, le decimos cuanto es y por consola cuanto stock queda
-    if ((productoElegido === producto1) && (cantidadCompra <= stockProducto1)){
-        stockSuficiente(cantidadCompra, precioProducto1) 
-        let stockRestante1 = stockProducto1 - cantidadCompra
-        stockQueda(producto1, stockRestante1)
+    if ((productoElegido === listaProd[0].nombre) && (cantidadCompra <= listaProd[0].stock)){
+        stockSuficiente(cantidadCompra, listaProd[0].precio); 
+        let stockRestante1 = listaProd[0].stock - cantidadCompra;
+        stockQueda(listaProd[0].nombre, stockRestante1);
     }
     
-    else if ((productoElegido === producto2) && (cantidadCompra <= stockProducto2)){
-        stockSuficiente(cantidadCompra, precioProducto2) 
-        let stockRestante2 = stockProducto2 - cantidadCompra
-        stockQueda(producto2, stockRestante2)
+    else if ((productoElegido === listaProd[1].nombre) && (cantidadCompra <= listaProd[1].stock)){
+        stockSuficiente(cantidadCompra, listaProd[1].precio); 
+        let stockRestante2 = listaProd[1].stock - cantidadCompra;
+        stockQueda(listaProd[1].nombre, stockRestante2);
     }
     
-    else if ((productoElegido === producto3) && (cantidadCompra <= stockProducto3)){
-        stockSuficiente(cantidadCompra, precioProducto3) 
-        let stockRestante3 = stockProducto3 - cantidadCompra
-        stockQueda(producto3, stockRestante3)
+    else if ((productoElegido === listaProd[2].nombre) && (cantidadCompra <= listaProd[2].stock)){
+        stockSuficiente(cantidadCompra, listaProd[2].precio); 
+        let stockRestante3 = listaProd[2].stock - cantidadCompra;
+        stockQueda(listaProd[2].nombre, stockRestante3);
     }
 
     //Si no contamos con el producto o stock disponible, mostramos este mensaje al usuario indicando qué productos puede elegir
@@ -67,7 +68,9 @@ for (let i = 0; i < cantidadProductosDistintos; i++){
     }
 }
 
-
+//Metodo para verificar por alert si tenemos determinado producto en nuestro array
+let chequearProducto = prompt("Verifique si tenemos el producto")
+alert(allProducts.includes(chequearProducto))
 
 
 
